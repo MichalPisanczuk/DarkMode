@@ -1,0 +1,142 @@
+:root {
+    --color-bg: #fff;
+    --color-main: #000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-main);
+    background: var(--color-bg);
+    color: var(--color-main);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Helvetica, sans-serif;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden;
+    padding: 48px 32px;
+    width: 100vw;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+input {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+header button {
+    background-color: #000;
+    border: solid 1px #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 30px;
+    outline-width: 5px;
+    position: relative;
+    width: 55px;
+}
+
+.icon {
+    background-color: grey;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 18px;
+    margin: 2px 5px;
+    position: relative;
+    width: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+span {
+    bottom: 100%;
+    color: var(--color-main);
+    font-size: 10px;
+    left: 50%;
+    padding: 12px 0;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+}
+
+p {
+    font-size: 14px;
+    padding: 8px 0;
+    text-align: left;
+}
+
+main button {
+    border: solid 0.3vw;
+    background: var(--color-bg);
+    color: var(--color-main);
+    cursor: pointer;
+    font-family: Helvetica, sans-serif;
+    font-size: 32px;
+    margin: 24px 0;
+    padding: 24px 32px;
+    transition: background 0.3s, color 0.3s;
+}
+
+main button:hover {
+    background: var(--color-main);
+    color: var(--color-bg);
+}
+
+/* Dark Mode */
+
+body.dark {
+    --color-bg: #000;
+    --color-main: #fff;
+    transition: all, .8s;
+}
+
+body.light {
+    --color-bg: #fff;
+    --color-main: #000;
+    transition: all, .8s;
+}
+
+body.dark .icon {
+    background-color: rgb(221, 172, 48);
+    transform: translateX(25px);
+}
+
+body.dark .icon:after {
+    background-color: #000;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 15px;
+    left: -5px;
+    position: absolute;
+    /* top: 5px; */
+    width: 15px;
+}
