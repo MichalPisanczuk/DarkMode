@@ -10,17 +10,19 @@
 }
 
 body {
-    background: var(--color-bg);
-    color: var(--color-main);
+    align-items: start;
     background: var(--color-bg);
     color: var(--color-main);
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     font-family: Helvetica, sans-serif;
     justify-content: flex-start;
     height: 100vh;
+    margin-top: 10vh;
     overflow: hidden;
     padding: 48px 32px;
+    transition: background-color 0.3s;
     width: 100vw;
 }
 
@@ -28,7 +30,7 @@ header {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 0 auto 10vh;
     max-width: 1000px;
     width: 100%;
 }
@@ -49,13 +51,13 @@ input {
 
 header button {
     background-color: #000;
-    border: solid 1px #fff;
+    border: solid 2px #fff;
     border-radius: 50px;
     cursor: pointer;
-    height: 30px;
+    height: 40px;
     outline-width: 5px;
     position: relative;
-    width: 55px;
+    width: 80px;
 }
 
 .icon {
@@ -63,11 +65,11 @@ header button {
     border-radius: 100%;
     content: "";
     display: block;
-    height: 18px;
-    margin: 2px 5px;
+    height: 20px;
+    margin: 5px 10px;
     position: relative;
-    width: 18px;
     transition: background-color 0.3s, transform 0.3s;
+    width: 20px;
 }
 
 span {
@@ -88,8 +90,8 @@ main {
 }
 
 p {
-    font-size: 14px;
-    padding: 8px 0;
+    font-size: 24px;
+    padding: 12px 0;
     text-align: left;
 }
 
@@ -110,33 +112,65 @@ main button:hover {
     color: var(--color-bg);
 }
 
-/* Dark Mode */
+/* LIGHT MODE */
+body.light {
+    --color-bg: #fff;
+    --color-main: #000;
+}
+
+body.light .icon {
+    background: grey;
+    transform: translateX(0);
+}
+
+body.light .icon::after {
+    content: none;
+}
+
+/* DARK MODE */
 
 body.dark {
     --color-bg: #000;
     --color-main: #fff;
-    transition: all, .8s;
-}
-
-body.light {
-    --color-bg: #fff;
-    --color-main: #000;
-    transition: all, .8s;
 }
 
 body.dark .icon {
-    background-color: rgb(221, 172, 48);
-    transform: translateX(25px);
+    background: yellow;
+    transform: translateX(30px);
 }
 
-body.dark .icon:after {
+body.dark .icon::after {
     background-color: #000;
     border-radius: 100%;
     content: "";
     display: block;
-    height: 15px;
+    height: 20px;
     left: -5px;
     position: absolute;
-    /* top: 5px; */
-    width: 15px;
+    top: -2px;
+    width: 20px;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --color-bg: #000;
+        --color-main: #fff;
+    }
+
+    body .icon {
+        background: yellow;
+        transform: translateX(85px);
+    }
+
+    body .icon::after {
+        background-color: #000;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        height: 50px;
+        left: -5px;
+        position: absolute;
+        top: 5px;
+        width: 45px;
+    }
+} ;
